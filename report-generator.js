@@ -228,22 +228,24 @@ function renderEquipmentPage(report, equipment, index) {
           <tr>
             <th>Tipo</th>
             <th>Capacidad</th>
-            <th>Marca / Modelo</th>
+            <th>Fabricante</th>
+            <th>Modelo</th>
             <th>Serie</th>
           </tr>
           <tr>
             <td>${escapeHtml(equipment.hoistType || "No capturado")}</td>
             <td>${escapeHtml(equipment.hoistCapacity || "No capturado")}</td>
-            <td>${escapeHtml(equipment.hoistBrandModel || "No capturado")}</td>
+            <td>${escapeHtml(equipment.hoistManufacturer || "No capturado")}</td>
+            <td>${escapeHtml(equipment.hoistModel || "No capturado")}</td>
             <td>${escapeHtml(equipment.hoistSerialNumber || "No capturado")}</td>
           </tr>
           <tr>
             <th>Voltaje</th>
-            <th colspan="3"></th>
+            <th colspan="4"></th>
           </tr>
           <tr>
             <td>${escapeHtml(equipment.hoistVoltage || "No capturado")}</td>
-            <td colspan="3"></td>
+            <td colspan="4"></td>
           </tr>
         </table>
 

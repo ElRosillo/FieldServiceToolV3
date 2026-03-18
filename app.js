@@ -81,7 +81,8 @@ const elements = {
   equipmentLocation: document.getElementById("equipmentLocation"),
   hoistType: document.getElementById("hoistType"),
   hoistCapacity: document.getElementById("hoistCapacity"),
-  hoistBrandModel: document.getElementById("hoistBrandModel"),
+  hoistManufacturer: document.getElementById("hoistManufacturer"),
+  hoistModel: document.getElementById("hoistModel"),
   hoistSerialNumber: document.getElementById("hoistSerialNumber"),
   hoistVoltage: document.getElementById("hoistVoltage"),
   findingsList: document.getElementById("findingsList"),
@@ -212,7 +213,8 @@ function loadEquipmentIntoEditor(equipment) {
   elements.equipmentLocation.value = equipment.equipmentLocation;
   elements.hoistType.value = equipment.hoistType;
   elements.hoistCapacity.value = equipment.hoistCapacity;
-  elements.hoistBrandModel.value = equipment.hoistBrandModel;
+  elements.hoistManufacturer.value = equipment.hoistManufacturer;
+  elements.hoistModel.value = equipment.hoistModel;
   elements.hoistSerialNumber.value = equipment.hoistSerialNumber;
   elements.hoistVoltage.value = equipment.hoistVoltage;
   elements.overallCondition.value = equipment.overallCondition;
@@ -436,7 +438,8 @@ function saveEquipmentFromEditor() {
     equipmentLocation: elements.equipmentLocation.value.trim(),
     hoistType: elements.hoistType.value.trim(),
     hoistCapacity: elements.hoistCapacity.value.trim(),
-    hoistBrandModel: elements.hoistBrandModel.value.trim(),
+    hoistManufacturer: elements.hoistManufacturer.value.trim(),
+    hoistModel: elements.hoistModel.value.trim(),
     hoistSerialNumber: elements.hoistSerialNumber.value.trim(),
     hoistVoltage: elements.hoistVoltage.value.trim(),
     findings: currentEquipmentFindings.slice(),
@@ -713,7 +716,8 @@ function createLegacyEquipment(record) {
     equipmentLocation: "",
     hoistType: "",
     hoistCapacity: "",
-    hoistBrandModel: "",
+    hoistManufacturer: "",
+    hoistModel: "",
     hoistSerialNumber: "",
     hoistVoltage: "",
     findings: Array.isArray(record.findings) ? record.findings : [],
@@ -738,7 +742,8 @@ function createEmptyEquipment() {
     equipmentLocation: "",
     hoistType: "",
     hoistCapacity: "",
-    hoistBrandModel: "",
+    hoistManufacturer: "",
+    hoistModel: "",
     hoistSerialNumber: "",
     hoistVoltage: "",
     findings: [],
@@ -763,7 +768,8 @@ function normalizeEquipment(equipment) {
     equipmentLocation: source.equipmentLocation || "",
     hoistType: source.hoistType || "",
     hoistCapacity: source.hoistCapacity || "",
-    hoistBrandModel: source.hoistBrandModel || "",
+    hoistManufacturer: source.hoistManufacturer || source.hoistBrandModel || "",
+    hoistModel: source.hoistModel || "",
     hoistSerialNumber: source.hoistSerialNumber || "",
     hoistVoltage: source.hoistVoltage || "",
     findings: Array.isArray(source.findings) ? source.findings : [],
