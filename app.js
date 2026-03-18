@@ -76,7 +76,8 @@ const elements = {
   equipmentName: document.getElementById("equipmentName"),
   craneType: document.getElementById("craneType"),
   ratedCapacity: document.getElementById("ratedCapacity"),
-  brandModel: document.getElementById("brandModel"),
+  manufacturer: document.getElementById("manufacturer"),
+  model: document.getElementById("model"),
   serialNumber: document.getElementById("serialNumber"),
   equipmentLocation: document.getElementById("equipmentLocation"),
   hoistType: document.getElementById("hoistType"),
@@ -208,7 +209,8 @@ function loadEquipmentIntoEditor(equipment) {
   elements.equipmentName.value = equipment.equipmentName;
   elements.craneType.value = equipment.craneType;
   elements.ratedCapacity.value = equipment.ratedCapacity;
-  elements.brandModel.value = equipment.brandModel;
+  elements.manufacturer.value = equipment.manufacturer;
+  elements.model.value = equipment.model;
   elements.serialNumber.value = equipment.serialNumber;
   elements.equipmentLocation.value = equipment.equipmentLocation;
   elements.hoistType.value = equipment.hoistType;
@@ -433,7 +435,8 @@ function saveEquipmentFromEditor() {
     equipmentName: elements.equipmentName.value.trim(),
     craneType: elements.craneType.value,
     ratedCapacity: elements.ratedCapacity.value.trim(),
-    brandModel: elements.brandModel.value.trim(),
+    manufacturer: elements.manufacturer.value.trim(),
+    model: elements.model.value.trim(),
     serialNumber: elements.serialNumber.value.trim(),
     equipmentLocation: elements.equipmentLocation.value.trim(),
     hoistType: elements.hoistType.value.trim(),
@@ -521,7 +524,7 @@ function buildGenericFindingDescription(category, incidence) {
 
 function buildEquipmentCardSummary(equipment) {
   const pieces = [
-    equipment.brandModel,
+    [equipment.manufacturer, equipment.model].filter(Boolean).join(" ").trim(),
     equipment.serialNumber ? `Serie ${equipment.serialNumber}` : "",
     equipment.overallCondition
   ].filter(Boolean);
@@ -711,7 +714,8 @@ function createLegacyEquipment(record) {
     equipmentName: record.craneType ? `Equipo ${record.craneType}` : "Equipo 1",
     craneType: record.craneType || "Puente",
     ratedCapacity: record.ratedCapacity || "",
-    brandModel: record.brandModel || "",
+    manufacturer: record.manufacturer || record.brandModel || "",
+    model: record.model || "",
     serialNumber: record.serialNumber || "",
     equipmentLocation: "",
     hoistType: "",
@@ -737,7 +741,8 @@ function createEmptyEquipment() {
     equipmentName: "",
     craneType: "Puente",
     ratedCapacity: "",
-    brandModel: "",
+    manufacturer: "",
+    model: "",
     serialNumber: "",
     equipmentLocation: "",
     hoistType: "",
@@ -763,7 +768,8 @@ function normalizeEquipment(equipment) {
     equipmentName: source.equipmentName || "",
     craneType: source.craneType || "Puente",
     ratedCapacity: source.ratedCapacity || "",
-    brandModel: source.brandModel || "",
+    manufacturer: source.manufacturer || source.brandModel || "",
+    model: source.model || "",
     serialNumber: source.serialNumber || "",
     equipmentLocation: source.equipmentLocation || "",
     hoistType: source.hoistType || "",

@@ -206,12 +206,14 @@ function renderEquipmentPage(report, equipment, index) {
             <td>${escapeHtml(equipment.ratedCapacity || "No capturado")}</td>
           </tr>
           <tr>
-            <th>Marca / Modelo</th>
-            <th colspan="2">Serie / Identificacion</th>
+            <th>Fabricante</th>
+            <th>Modelo</th>
+            <th>Serie / Identificacion</th>
           </tr>
           <tr>
-            <td>${escapeHtml(equipment.brandModel || "No capturado")}</td>
-            <td colspan="2">${escapeHtml(equipment.serialNumber || "No capturado")}</td>
+            <td>${escapeHtml(equipment.manufacturer || "No capturado")}</td>
+            <td>${escapeHtml(equipment.model || "No capturado")}</td>
+            <td>${escapeHtml(equipment.serialNumber || "No capturado")}</td>
           </tr>
           <tr>
             <th>Ubicacion puntual</th>
