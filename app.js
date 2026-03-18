@@ -78,12 +78,12 @@ const elements = {
   ratedCapacity: document.getElementById("ratedCapacity"),
   brandModel: document.getElementById("brandModel"),
   serialNumber: document.getElementById("serialNumber"),
-  spanLength: document.getElementById("spanLength"),
   equipmentLocation: document.getElementById("equipmentLocation"),
   hoistType: document.getElementById("hoistType"),
   hoistCapacity: document.getElementById("hoistCapacity"),
   hoistBrandModel: document.getElementById("hoistBrandModel"),
   hoistSerialNumber: document.getElementById("hoistSerialNumber"),
+  hoistVoltage: document.getElementById("hoistVoltage"),
   findingsList: document.getElementById("findingsList"),
   addFindingButton: document.getElementById("addFindingButton"),
   overallCondition: document.getElementById("overallCondition"),
@@ -209,12 +209,12 @@ function loadEquipmentIntoEditor(equipment) {
   elements.ratedCapacity.value = equipment.ratedCapacity;
   elements.brandModel.value = equipment.brandModel;
   elements.serialNumber.value = equipment.serialNumber;
-  elements.spanLength.value = equipment.spanLength;
   elements.equipmentLocation.value = equipment.equipmentLocation;
   elements.hoistType.value = equipment.hoistType;
   elements.hoistCapacity.value = equipment.hoistCapacity;
   elements.hoistBrandModel.value = equipment.hoistBrandModel;
   elements.hoistSerialNumber.value = equipment.hoistSerialNumber;
+  elements.hoistVoltage.value = equipment.hoistVoltage;
   elements.overallCondition.value = equipment.overallCondition;
   elements.nextInspection.value = equipment.nextInspection;
   elements.serviceSummary.value = equipment.serviceSummary;
@@ -433,12 +433,12 @@ function saveEquipmentFromEditor() {
     ratedCapacity: elements.ratedCapacity.value.trim(),
     brandModel: elements.brandModel.value.trim(),
     serialNumber: elements.serialNumber.value.trim(),
-    spanLength: elements.spanLength.value.trim(),
     equipmentLocation: elements.equipmentLocation.value.trim(),
     hoistType: elements.hoistType.value.trim(),
     hoistCapacity: elements.hoistCapacity.value.trim(),
     hoistBrandModel: elements.hoistBrandModel.value.trim(),
     hoistSerialNumber: elements.hoistSerialNumber.value.trim(),
+    hoistVoltage: elements.hoistVoltage.value.trim(),
     findings: currentEquipmentFindings.slice(),
     overallCondition: elements.overallCondition.value,
     nextInspection: elements.nextInspection.value,
@@ -710,12 +710,12 @@ function createLegacyEquipment(record) {
     ratedCapacity: record.ratedCapacity || "",
     brandModel: record.brandModel || "",
     serialNumber: record.serialNumber || "",
-    spanLength: record.spanLength || "",
     equipmentLocation: "",
     hoistType: "",
     hoistCapacity: "",
     hoistBrandModel: "",
     hoistSerialNumber: "",
+    hoistVoltage: "",
     findings: Array.isArray(record.findings) ? record.findings : [],
     overallCondition: record.overallCondition || "Bueno",
     nextInspection: record.nextInspection || "",
@@ -735,12 +735,12 @@ function createEmptyEquipment() {
     ratedCapacity: "",
     brandModel: "",
     serialNumber: "",
-    spanLength: "",
     equipmentLocation: "",
     hoistType: "",
     hoistCapacity: "",
     hoistBrandModel: "",
     hoistSerialNumber: "",
+    hoistVoltage: "",
     findings: [],
     overallCondition: "Bueno",
     nextInspection: nextDate.toISOString().slice(0, 10),
@@ -760,12 +760,12 @@ function normalizeEquipment(equipment) {
     ratedCapacity: source.ratedCapacity || "",
     brandModel: source.brandModel || "",
     serialNumber: source.serialNumber || "",
-    spanLength: source.spanLength || "",
     equipmentLocation: source.equipmentLocation || "",
     hoistType: source.hoistType || "",
     hoistCapacity: source.hoistCapacity || "",
     hoistBrandModel: source.hoistBrandModel || "",
     hoistSerialNumber: source.hoistSerialNumber || "",
+    hoistVoltage: source.hoistVoltage || "",
     findings: Array.isArray(source.findings) ? source.findings : [],
     overallCondition: source.overallCondition || "Bueno",
     nextInspection: source.nextInspection || "",

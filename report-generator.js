@@ -207,13 +207,11 @@ function renderEquipmentPage(report, equipment, index) {
           </tr>
           <tr>
             <th>Marca / Modelo</th>
-            <th>Serie / Identificacion</th>
-            <th>Claro / Longitud</th>
+            <th colspan="2">Serie / Identificacion</th>
           </tr>
           <tr>
             <td>${escapeHtml(equipment.brandModel || "No capturado")}</td>
-            <td>${escapeHtml(equipment.serialNumber || "No capturado")}</td>
-            <td>${escapeHtml(equipment.spanLength || "No capturado")}</td>
+            <td colspan="2">${escapeHtml(equipment.serialNumber || "No capturado")}</td>
           </tr>
           <tr>
             <th>Ubicacion puntual</th>
@@ -238,6 +236,14 @@ function renderEquipmentPage(report, equipment, index) {
             <td>${escapeHtml(equipment.hoistCapacity || "No capturado")}</td>
             <td>${escapeHtml(equipment.hoistBrandModel || "No capturado")}</td>
             <td>${escapeHtml(equipment.hoistSerialNumber || "No capturado")}</td>
+          </tr>
+          <tr>
+            <th>Voltaje</th>
+            <th colspan="3"></th>
+          </tr>
+          <tr>
+            <td>${escapeHtml(equipment.hoistVoltage || "No capturado")}</td>
+            <td colspan="3"></td>
           </tr>
         </table>
 
